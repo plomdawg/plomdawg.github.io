@@ -4,7 +4,7 @@
       name: "Music Bot"
       icon: "🎧"
       links:
-        - name: "GitHub"
+        - name: "Source"
           url: "https://github.com/plomdawg/discord-bots"
       short_description: "A music bot for Discord servers."
       demo:
@@ -20,7 +20,7 @@
       name: "Dota Bot"
       icon: "🎮"
       links:
-        - name: "GitHub"
+        - name: "Source"
           url: "https://github.com/plomdawg/discord-bots"
       short_description: "A Dota 2 bot for Discord servers."
       demo:
@@ -39,9 +39,9 @@
       name: "Label Generator"
       icon: "🖨️"
       links:
-        - name: "Live Demo"
+        - name: "Live Website"
           url: "https://labels.plom.one/"
-        - name: "GitHub"
+        - name: "Source"
           url: "https://github.com/plomdawg/label-generator"
       short_description: |
         A web app to generate custom 4x6" thermal labels.
@@ -49,3 +49,11 @@
         - "/assets/images/label_generator.png"
       long_description: |
         This tool was built for my girlfriend, Lisa ♥
+    - id: "this-website"
+      name: "This Website"
+      icon: "🌐"
+      links:
+        - name: "Source"
+          url: "https://github.com/plomdawg/plomdawg.github.io"
+      short_description: |
+        This website is built with 99% vibe coding.

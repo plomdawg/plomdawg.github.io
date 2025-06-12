@@ -24,7 +24,12 @@ layout: default
       <div id="{{ project.id }}" class="project-detail" style="display: none;">
         <h2>{{ project.name }}
           {% for link in project.links %}
-            <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">{{ link.name }}</a>
+            <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+              {% if link.name == "Source" %}
+                <ion-icon name="logo-github"></ion-icon>
+              {% endif %}
+              {{ link.name }}
+            </a>
           {% endfor %}
         </h2>
         <p class="lead">{{ project.short_description }}</p>

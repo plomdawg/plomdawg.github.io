@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const links = document.querySelectorAll('.project-link');
+    const defaultProjectId = links.length > 0 ? links[0].dataset.target : null;
     
     console.log('Found project links:', links.length);
     
@@ -61,19 +62,53 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    function updateURL(targetId) {
+        // We don't want to clutter the URL for the default project.
+        // Let's keep the URL clean.
+        // However, if we're on another project page, we need to be able to get back.
+        if (targetId === defaultProjectId) {
+            history.pushState({ targetId }, '', window.location.pathname);
+        } else {
+            history.pushState({ targetId }, '', '#' + targetId);
+        }
+    }
+    
     // Add click handlers
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('Link clicked:', link.dataset.target);
-            showProject(link.dataset.target);
+            const targetId = link.dataset.target;
+
+            // If we're already on this page, don't do anything.
+            const currentHash = window.location.hash.substring(1);
+            if (currentHash === targetId) return;
+
+            // Also, if we're on the default page and click the default link, do nothing.
+            if (!currentHash && targetId === defaultProjectId) return;
+
+            console.log('Link clicked:', targetId);
+            showProject(targetId);
+            updateURL(targetId);
         });
     });
     
-    // Show first project by default
-    if (links.length > 0) {
-        showProject(links[0].dataset.target);
+    const loadProjectFromURL = () => {
+        const targetId = window.location.hash.substring(1);
+        // If a project is specified in the URL, show it.
+        // Otherwise, show the first project.
+        if (targetId && projectDetailsStore.querySelector(`#${targetId}`)) {
+            showProject(targetId);
+        } else if (defaultProjectId) {
+            showProject(defaultProjectId);
+        }
     }
+
+    loadProjectFromURL();
+
+    // Re-load content when the user uses the back/forward buttons.
+    window.addEventListener('popstate', (e) => {
+        loadProjectFromURL();
+    });
 });
 
 // Theme switching functionality

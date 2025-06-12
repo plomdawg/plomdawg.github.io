@@ -50,3 +50,7 @@ body {
     font-size: 1.5rem;
     vertical-align: middle;
 }
+
+.sidebar-heading {
+    color: var(--text-color) !important;
+}

@@ -37,6 +37,34 @@
         - name: "/quiz"
           description: "Start the Shopkeeper's Quiz."
           demo: "/assets/images/dotabot_quiz.png"
+    - id: "voicebot"
+      name: "AI Voice Bot"
+      icon: "🎤"
+      links:
+        - name: "Source"
+          url: "https://github.com/plomdawg/discord-bots"
+      short_description: "AI TTS bot for Discord servers."
+      demo:
+        - "/assets/images/voicebot.png"
+      long_description: |
+        Plays text-to-speech using AI voices.
+
+        Key Features:
+        * ElevenLabs API support
+        * Local Piper TTS Generation
+        * Local FishSpeech TTS Generation
+        * Text-to-speech playback
+        * Voice cloning
+      commands:
+        - name: ";help"
+          description: "Show all commands and available voices."
+          demo: "/assets/images/voicebot_help.png"
+        - name: ";[voice] [text]"
+          description: "Play text-to-speech using a specific AI voice."
+          demo: "/assets/images/voicebot_voice.png"
+        - name: ";[text]"
+          description: "Play text-to-speech using a random AI voice."
+          demo: "/assets/images/voicebot_random.png"
 - section: "Websites"
   projects:
     - id: "label-generator"

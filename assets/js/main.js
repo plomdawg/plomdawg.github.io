@@ -23,19 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
         targetDetail.style.display = 'block';
         
         // Update header
-        const projectName = targetDetail.querySelector('h2');
-        const shortDescription = targetDetail.querySelector('.lead');
-        if (projectName && shortDescription) {
-            projectHeader.innerHTML = `
-                <h2 class="mb-2">${projectName.textContent}</h2>
-                <p class="lead mb-0">${shortDescription.textContent}</p>
-                <hr>
-            `;
+        const headerContent = targetDetail.querySelector('.project-header');
+        if (headerContent) {
+            projectHeader.innerHTML = headerContent.innerHTML;
         }
         
         // Update demo media
-        const demoMedia = targetDetail.querySelector('.demo-media');
-        demoMediaContainer.innerHTML = demoMedia ? demoMedia.outerHTML : '';
+        const demoContent = targetDetail.querySelector('.project-demo');
+        demoMediaContainer.innerHTML = demoContent ? demoContent.innerHTML : '';
+        
+        // Update main content
+        const mainContent = targetDetail.querySelector('.project-content');
+        if (mainContent) {
+            detailsContainer.innerHTML = mainContent.innerHTML;
+        }
         
         // Set active state
         document.querySelector(`[data-target="${targetId}"]`)?.classList.add('active');

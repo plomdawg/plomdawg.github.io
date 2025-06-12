@@ -21,29 +21,35 @@ layout: default
   {% for section in site.data.projects %}
     {% for project in section.projects %}
       <div id="{{ project.id }}" class="project-detail" style="display: none;">
-        <h2>
-          {{ project.name }}
-          {% for link in project.links %}
-            <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
-              {% if link.name == "Source" %}
-                <ion-icon name="logo-github" class="me-1"></ion-icon>
-              {% endif %}
-              {{ link.name }}
-            </a>
-          {% endfor %}
-        </h2>
-        <p class="lead">{{ project.short_description }}</p>
-        <hr>
-
-        {% if project.demo.size > 0 %}
-          <div class="demo-media">
-            {% for item in project.demo %}
-              <img src="{{ item }}" class="img-fluid rounded border mb-3" alt="{{ project.name }} screenshot">
+        <div class="project-header">
+          <h2>
+            {{ project.name }}
+            {% for link in project.links %}
+              <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+                {% if link.name == "Source" %}
+                  <ion-icon name="logo-github" class="me-1"></ion-icon>
+                {% endif %}
+                {{ link.name }}
+              </a>
             {% endfor %}
-          </div>
-        {% endif %}
+          </h2>
+          <p class="lead">{{ project.short_description }}</p>
+          <hr>
+        </div>
 
-        {{ project.long_description | markdownify }}
+        <div class="project-demo">
+          {% if project.demo.size > 0 %}
+            <div class="demo-media">
+              {% for item in project.demo %}
+                <img src="{{ item }}" class="img-fluid rounded border mb-3" alt="{{ project.name }} screenshot">
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="project-content">
+          {{ project.long_description | markdownify }}
+        </div>
       </div>
     {% endfor %}
   {% endfor %}

@@ -10,7 +10,7 @@
       demo:
         - "/assets/images/musicbot_demo.gif"
       long_description: |
-        The music bot streams music from YouTube.
+        Stream music from YouTube and Spotify.
 
         Key Features:
         * YouTube and Spotify support

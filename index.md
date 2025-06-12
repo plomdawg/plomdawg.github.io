@@ -10,8 +10,7 @@ layout: default
     {% for project in section.projects %}
       <li class="nav-item">
         <a class="nav-link project-link" href="#" data-target="{{ project.id }}">
-          <ion-icon name="{{ project.icon }}"></ion-icon>
-          {{ project.name }}
+          {{ project.icon }} {{ project.name }}
         </a>
       </li>
     {% endfor %}

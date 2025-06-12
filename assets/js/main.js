@@ -38,18 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
           shortDescription.remove();
         }
         
-        // Move demo media to the middle column
+        // Clone demo media to the middle column instead of moving it
         const demoMedia = targetDetail.querySelector('.demo-media');
         if (demoMedia) {
           demoMediaContainer.innerHTML = demoMedia.outerHTML;
         } else {
           demoMediaContainer.innerHTML = ''; // Clear if no demo media
-        }
-        
-        // Remove demo media from the details container
-        const demoMediaInDetails = targetDetail.querySelector('.demo-media');
-        if (demoMediaInDetails) {
-          demoMediaInDetails.remove();
         }
       }
   

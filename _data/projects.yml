@@ -37,6 +37,12 @@
         - name: "/quiz"
           description: "Start the Shopkeeper's Quiz."
           demo: "/assets/images/dotabot_quiz.png"
+        - name: "/gold"
+          description: "Check your current gold balance."
+          demo: "/assets/images/dotabot_gold.png"
+        - name: "/top"
+          description: "Check the gold leaderboard."
+          demo: "/assets/images/dotabot_top.png"
     - id: "voicebot"
       name: "AI Voice Bot"
       icon: "🎤"
@@ -45,7 +51,7 @@
           url: "https://github.com/plomdawg/discord-bots"
       short_description: "AI TTS bot for Discord servers."
       demo:
-        - "/assets/images/voicebot.png"
+        - "/assets/images/voicebot_demo.gif"
       long_description: |
         Plays text-to-speech using AI voices.
 

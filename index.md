@@ -56,5 +56,5 @@ layout: default
 {% endcapture %}
 
 <script>
-  const projectDetailsHTML = {{ project_details | jsonify }};
+  const projectDetailsHTML = `{{ project_details }}`;
 </script>

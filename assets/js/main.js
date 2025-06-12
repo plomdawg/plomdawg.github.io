@@ -3,43 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoMediaContainer = document.getElementById('demo-media-container');
     const projectHeader = document.getElementById('project-header');
     
-    // Create a hidden container for project details
-    const projectDetailsContainer = document.createElement('div');
-    projectDetailsContainer.style.display = 'none';
-    document.body.appendChild(projectDetailsContainer);
-    
-    // Initialize project details
+    // Create a DocumentFragment to hold the project details
+    let projectDetailsStore = null;
     if (typeof projectDetailsHTML !== 'undefined') {
-        projectDetailsContainer.innerHTML = projectDetailsHTML;
+        const template = document.createElement('template');
+        template.innerHTML = projectDetailsHTML.trim();
+        projectDetailsStore = template.content;
     }
     
     const links = document.querySelectorAll('.project-link');
-    const projectDetails = projectDetailsContainer.querySelectorAll('.project-detail');
     
     console.log('Found project links:', links.length);
-    console.log('Found project details:', projectDetails.length);
     
     function showProject(targetId) {
         console.log('Showing project:', targetId);
         
-        // Hide all projects and remove active states
-        projectDetails.forEach(detail => detail.style.display = 'none');
+        // Remove active states from all links
         links.forEach(link => link.classList.remove('active'));
         
-        // Show selected project
-        const targetDetail = projectDetailsContainer.querySelector(`#${targetId}`);
+        // Get selected project from our store
+        const targetDetail = projectDetailsStore ? projectDetailsStore.querySelector(`#${targetId}`) : null;
         if (!targetDetail) {
             console.error('Target project not found:', targetId);
             return;
         }
         
         console.log('Found target detail:', targetDetail);
-        targetDetail.style.display = 'block';
         
         // Update header
         const headerContent = targetDetail.querySelector('.project-header');
         if (headerContent) {
             projectHeader.innerHTML = headerContent.innerHTML;
+        } else {
+            projectHeader.innerHTML = '';
         }
         
         // Update demo media
@@ -54,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const mainContent = targetDetail.querySelector('.project-content');
         if (mainContent) {
             detailsContainer.innerHTML = mainContent.innerHTML;
+        } else {
+            detailsContainer.innerHTML = '';
         }
         
-        // Set active state
+        // Set active state on the clicked link
         const activeLink = document.querySelector(`[data-target="${targetId}"]`);
         if (activeLink) {
             activeLink.classList.add('active');

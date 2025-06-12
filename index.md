@@ -22,7 +22,8 @@ layout: default
   {% for section in site.data.projects %}
     {% for project in section.projects %}
       <div id="{{ project.id }}" class="project-detail" style="display: none;">
-        <h2>{{ project.name }}
+        <h2>
+          {{ project.name }}
           {% for link in project.links %}
             <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
               {% if link.name == "Source" %}
@@ -35,11 +36,13 @@ layout: default
         <p class="lead">{{ project.short_description }}</p>
         <hr>
 
-        <div class="demo-media">
-          {% for item in project.demo %}
-            <img src="{{ item }}" class="img-fluid rounded border mb-3" alt="{{ project.name }} screenshot">
-          {% endfor %}
-        </div>
+        {% if project.demo.size > 0 %}
+          <div class="demo-media">
+            {% for item in project.demo %}
+              <img src="{{ item }}" class="img-fluid rounded border mb-3" alt="{{ project.name }} screenshot">
+            {% endfor %}
+          </div>
+        {% endif %}
 
         {{ project.long_description | markdownify }}
       </div>
@@ -48,6 +51,5 @@ layout: default
 {% endcapture %}
 
 <script>
-  // Safely pass the Jekyll-generated HTML to a JavaScript variable
   const projectDetailsHTML = {{ project_details | jsonify }};
 </script>

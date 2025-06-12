@@ -1,4 +1,4 @@
-- section: "Discord"
+- section: "Discord Bots"
   projects:
     - id: "musicbot"
       name: "Music Bot"

@@ -3,79 +3,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoMediaContainer = document.getElementById('demo-media-container');
     const projectHeader = document.getElementById('project-header');
     
-    // 1. Inject the HTML from our variable into the page
-    // The 'projectDetailsHTML' variable is created in index.md
+    // Initialize project details
     if (typeof projectDetailsHTML !== 'undefined') {
-      detailsContainer.innerHTML = projectDetailsHTML;
+        detailsContainer.innerHTML = projectDetailsHTML;
     }
-  
-    // 2. Now that the HTML is on the page, find the links and details
+    
     const links = document.querySelectorAll('.project-link');
     const projectDetails = detailsContainer.querySelectorAll('.project-detail');
-  
-    // Function to switch visible project
+    
     function showProject(targetId) {
-      // Hide all project details
-      projectDetails.forEach(detail => {
-        detail.style.display = 'none';
-      });
-  
-      // Show the target project detail
-      const targetDetail = document.getElementById(targetId);
-      if (targetDetail) {
+        // Hide all projects and remove active states
+        projectDetails.forEach(detail => detail.style.display = 'none');
+        links.forEach(link => link.classList.remove('active'));
+        
+        // Show selected project
+        const targetDetail = document.getElementById(targetId);
+        if (!targetDetail) return;
+        
         targetDetail.style.display = 'block';
         
-        // Update project header with name and short description
+        // Update header
         const projectName = targetDetail.querySelector('h2');
         const shortDescription = targetDetail.querySelector('.lead');
-        const hr = targetDetail.querySelector('hr');
         if (projectName && shortDescription) {
-          projectHeader.innerHTML = `
-            <h2 class="mb-2">${projectName.textContent}</h2>
-            <p class="lead mb-0">${shortDescription.textContent}</p>
-            <hr>
-          `;
-          // Remove from details container
-          projectName.remove();
-          shortDescription.remove();
-          if (hr) hr.remove();
+            projectHeader.innerHTML = `
+                <h2 class="mb-2">${projectName.textContent}</h2>
+                <p class="lead mb-0">${shortDescription.textContent}</p>
+                <hr>
+            `;
         }
         
-        // Move demo media to the middle column
+        // Update demo media
         const demoMedia = targetDetail.querySelector('.demo-media');
-        if (demoMedia) {
-          demoMediaContainer.innerHTML = demoMedia.outerHTML;
-          // Remove the demo media from the details container
-          demoMedia.remove();
-        } else {
-          demoMediaContainer.innerHTML = ''; // Clear if no demo media
-        }
-      }
-  
-      // Update active link style
-      links.forEach(link => {
-        if (link.dataset.target === targetId) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
+        demoMediaContainer.innerHTML = demoMedia ? demoMedia.outerHTML : '';
+        
+        // Set active state
+        document.querySelector(`[data-target="${targetId}"]`)?.classList.add('active');
     }
-  
-    // Add click event listeners to all project links
+    
+    // Add click handlers
     links.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent page from reloading
-        const targetId = this.dataset.target;
-        showProject(targetId);
-      });
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showProject(link.dataset.target);
+        });
     });
-  
-    // Show the first project by default
+    
+    // Show first project by default
     if (links.length > 0) {
-      showProject(links[0].dataset.target);
+        showProject(links[0].dataset.target);
     }
-  });
+});
 
 // Theme switching functionality
 document.addEventListener('DOMContentLoaded', () => {

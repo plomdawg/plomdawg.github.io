@@ -157,6 +157,7 @@
           url: "https://github.com/plomdawg/plomdawg.github.io"
       demo:
         - "/assets/images/concept_art.png"
+        - "/assets/images/website_demo.gif"
       short_description: |
         Built with 90% vibe coding using ChatGPT, Gemini, and Claude.
       long_description: |

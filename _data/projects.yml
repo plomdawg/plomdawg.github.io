@@ -13,7 +13,9 @@
         Stream music from YouTube and Spotify.
 
         Key Features:
-        * YouTube and Spotify support
+        * MP3 playback from YouTube
+        * Spotify → YouTube query support
+        * Discord Rich Presence Spotify detection
         * Queue system
         * Emoji controls (skip, pause, volume, etc.)
       commands:
@@ -24,6 +26,18 @@
           description: "Play music from YouTube or Spotify."
           icon: "🎵"
           hint: "The query can be a YouTube URL, a Spotify URL, or a search query."
+        - name: "/playspotify"
+          description: "Play music from Spotify."
+          icon: "🎵"
+          hint: "Uses Discord Rich Presence to detect a Spotify song and play it."
+        - name: "/playartist [artist]"
+          description: "Play music from an artist."
+          icon: "🎵"
+          hint: "Uses Spotify's search to find an artist and adds their top songs to the queue."
+        - name: "/playalbum [album]"
+          description: "Play music from an album."
+          icon: "🎵"
+          hint: "Uses Spotify's search to find an album and adds all songs to the queue."
         - name: "/lyrics [song]"
           description: "Show the lyrics of a song."
           icon: "📜"
@@ -31,7 +45,7 @@
         - name: "/search [query]"
           description: "Search for a song on YouTube."
           icon: "🔎"
-          hint: "Searches a query on YouTube and returns a few results."
+          hint: "Click on a number to add that song to the queue."
           demo: "/assets/images/musicbot_search.png"
         - name: "/queue"
           description: "Show the current queue."
@@ -70,7 +84,7 @@
         Key Features:
         * Dota 2 voiceline playback
         * Dota 2 Shopkeeper's Quiz
-          * Unscramble 1000+ words
+          * Unscramble 2000+ words
           * AI TTS feature to read the scrambled word
       commands:
         - name: "/quiz"

@@ -27,7 +27,7 @@ layout: default
           {% for link in project.links %}
             <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
               {% if link.name == "Source" %}
-                <ion-icon name="logo-github"></ion-icon>
+                <ion-icon name="logo-github" class="me-1"></ion-icon>
               {% endif %}
               {{ link.name }}
             </a>

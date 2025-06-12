@@ -54,3 +54,39 @@ body {
 .sidebar-heading {
     color: var(--text-color) !important;
 }
+
+/* Command List Styles */
+.command-list {
+    margin-top: 1rem;
+}
+
+.command {
+    background-color: rgba(128, 128, 128, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.command-name {
+    flex-shrink: 0;
+}
+
+.command-name code {
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+    background-color: rgba(128, 128, 128, 0.1);
+    border-radius: 0.3rem;
+}
+
+.command-description p {
+    margin-bottom: 0.5rem;
+}
+
+.command-description img {
+    margin-top: 0.5rem;
+    max-width: 100%;
+}

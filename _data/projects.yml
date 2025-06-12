@@ -33,6 +33,10 @@
         * Dota 2 Shopkeeper's Quiz
           * Unscramble 1000+ words
           * AI TTS feature to read the scrambled word
+      commands:
+        - name: "/quiz"
+          description: "Start the Shopkeeper's Quiz."
+          demo: "/assets/images/dotabot_quiz.png"
 - section: "Websites"
   projects:
     - id: "label-generator"

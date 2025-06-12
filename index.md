@@ -49,6 +49,24 @@ layout: default
 
         <div class="project-content">
           {{ project.long_description | markdownify }}
+          {% if project.commands %}
+            <h5 class="mt-4">Commands</h5>
+            <div class="command-list">
+              {% for command in project.commands %}
+                <div class="command">
+                  <div class="command-name">
+                    <code>{{ command.name }}</code>
+                  </div>
+                  <div class="command-description">
+                    <p>{{ command.description }}</p>
+                    {% if command.demo %}
+                      <img src="{{ command.demo }}" class="img-fluid rounded border" alt="{{ command.name }} demo">
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
       </div>
     {% endfor %}

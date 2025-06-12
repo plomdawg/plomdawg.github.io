@@ -7,3 +7,46 @@
     margin-right: 8px;
     vertical-align: text-bottom;
   }
+
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #29292d;
+    --text-color: #e9ecef;
+    --border-color: #495057;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.border-bottom, .border-end {
+    border-color: var(--border-color) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-color) !important;
+}
+
+#theme-toggle {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.theme-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}

@@ -25,7 +25,7 @@ layout: default
           <h2>
             {{ project.name }}
             {% for link in project.links %}
-              <a href="{{ link.url }}" target="_blank" class="btn btn-outline-secondary btn-sm">
+              <a href="{{ link.url }}" target="_blank" class="btn {% if link.name == 'Invite' %}btn-outline-success{% else %}btn-outline-secondary{% endif %} btn-sm">
                 {% if link.name == "Source" %}
                   <ion-icon name="logo-github" class="me-1"></ion-icon>
                 {% elsif link.name == "Invite" %}

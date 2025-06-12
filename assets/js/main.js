@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const detailsContainer = document.getElementById('project-details-container');
     const demoMediaContainer = document.getElementById('demo-media-container');
+    const projectHeader = document.getElementById('project-header');
     
     // 1. Inject the HTML from our variable into the page
     // The 'projectDetailsHTML' variable is created in index.md
@@ -23,6 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetDetail = document.getElementById(targetId);
       if (targetDetail) {
         targetDetail.style.display = 'block';
+        
+        // Update project header with name and short description
+        const projectName = targetDetail.querySelector('.project-name');
+        const shortDescription = targetDetail.querySelector('.short-description');
+        if (projectName && shortDescription) {
+          projectHeader.innerHTML = `
+            <h2 class="mb-2">${projectName.innerHTML}</h2>
+            <p class="lead mb-0">${shortDescription.innerHTML}</p>
+          `;
+          // Remove from details container
+          projectName.remove();
+          shortDescription.remove();
+        }
         
         // Move demo media to the middle column
         const demoMedia = targetDetail.querySelector('.demo-media');

@@ -73,6 +73,15 @@ body {
 
 .command-name {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.command-icon {
+    margin-right: 0.5rem;
+    width: 24px;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .command-name code {

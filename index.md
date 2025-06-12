@@ -55,6 +55,9 @@ layout: default
               {% for command in project.commands %}
                 <div class="command">
                   <div class="command-name">
+                    {% if command.icon %}
+                      <span class="command-icon">{{ command.icon }}</span>
+                    {% endif %}
                     <code>{{ command.name }}</code>
                   </div>
                   <div class="command-description">

@@ -50,7 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update main content
         const mainContent = targetDetail.querySelector('.project-content');
         if (mainContent) {
-            detailsContainer.innerHTML = mainContent.innerHTML;
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = mainContent.innerHTML;
+            detailsContainer.innerHTML = '';
+            detailsContainer.appendChild(contentDiv);
         }
         
         // Set active state

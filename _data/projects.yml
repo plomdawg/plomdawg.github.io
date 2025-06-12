@@ -75,6 +75,8 @@
       links:
         - name: "Source"
           url: "https://github.com/plomdawg/discord-bots"
+        - name: "Invite"
+          url: "https://discordapp.com/oauth2/authorize?client_id=649351968623427640&scope=bot&permissions=1110453312"
       short_description: "A Dota 2 bot for Discord servers."
       demo:
         - "/assets/images/dotabot.png"

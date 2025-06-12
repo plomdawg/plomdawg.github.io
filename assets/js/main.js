@@ -28,14 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update project header with name and short description
         const projectName = targetDetail.querySelector('h2');
         const shortDescription = targetDetail.querySelector('.lead');
+        const hr = targetDetail.querySelector('hr');
         if (projectName && shortDescription) {
           projectHeader.innerHTML = `
             <h2 class="mb-2">${projectName.textContent}</h2>
             <p class="lead mb-0">${shortDescription.textContent}</p>
+            <hr>
           `;
           // Remove from details container
           projectName.remove();
           shortDescription.remove();
+          if (hr) hr.remove();
         }
         
         // Move demo media to the middle column

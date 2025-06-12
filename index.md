@@ -45,7 +45,6 @@ layout: default
 {% endcapture %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('project-details-container').innerHTML = `{{ project_details | escape }}`;
-  });
+  // Safely pass the Jekyll-generated HTML to a JavaScript variable
+  const projectDetailsHTML = {{ project_details | jsonify }};
 </script>

@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('.project-link');
     const detailsContainer = document.getElementById('project-details-container');
+    
+    // 1. Inject the HTML from our variable into the page
+    // The 'projectDetailsHTML' variable is created in index.md
+    if (typeof projectDetailsHTML !== 'undefined') {
+      detailsContainer.innerHTML = projectDetailsHTML;
+    }
+  
+    // 2. Now that the HTML is on the page, find the links and details
+    const links = document.querySelectorAll('.project-link');
+    const projectDetails = detailsContainer.querySelectorAll('.project-detail');
   
     // Function to switch visible project
     function showProject(targetId) {
       // Hide all project details
-      const allDetails = detailsContainer.querySelectorAll('.project-detail');
-      allDetails.forEach(detail => {
+      projectDetails.forEach(detail => {
         detail.style.display = 'none';
       });
   

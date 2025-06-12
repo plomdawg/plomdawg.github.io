@@ -1,0 +1,9 @@
+.sidebar .nav-link.active {
+    font-weight: bold;
+    color: #0d6efd; /* Bootstrap's primary blue */
+  }
+  
+  .sidebar .nav-link ion-icon {
+    margin-right: 8px;
+    vertical-align: text-bottom;
+  }

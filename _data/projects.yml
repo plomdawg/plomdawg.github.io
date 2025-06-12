@@ -1,0 +1,51 @@
+- section: "Discord"
+  projects:
+    - id: "musicbot"
+      name: "Music Bot"
+      icon: "🎧"
+      links:
+        - name: "GitHub"
+          url: "https://github.com/plomdawg/discord-bots"
+      short_description: "A music bot for Discord servers."
+      demo:
+        - "/assets/images/musicbot_screenshot1.png"
+      long_description: |
+        The music bot allows users to play music from various sources like YouTube and Spotify.
+
+        Key Features:
+        * YouTube and Spotify support
+        * Queue system
+        * Emoji controls (skip, pause, volume, etc.)
+    - id: "dotabot"
+      name: "Dota Bot"
+      icon: "🎮"
+      links:
+        - name: "GitHub"
+          url: "https://github.com/plomdawg/discord-bots"
+      short_description: "A Dota 2 bot for Discord servers."
+      demo:
+        - "/assets/images/dotabot.png"
+      long_description: |
+        The dota bot allows users to play voicelines and the Shopkeeper's Quiz.
+
+        Key Features:
+        * Dota 2 Shopkeeper's Quiz
+          * Unscramble 1000+ words
+          * AI TTS feature to read the scrambled word
+        * Dota 2 Voicelines
+- section: "Websites"
+  projects:
+    - id: "label-generator"
+      name: "Label Generator"
+      icon: "🖨️"
+      links:
+        - name: "Live Demo"
+          url: "https://labels.plom.one/"
+        - name: "GitHub"
+          url: "https://github.com/plomdawg/label-generator"
+      short_description: |
+        A web app to generate custom 4x6" thermal labels.
+      demo:
+        - "/assets/images/label_generator.png"
+      long_description: |
+        This tool was built for my girlfriend, Lisa ♥

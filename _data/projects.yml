@@ -59,5 +59,9 @@
       links:
         - name: "Source"
           url: "https://github.com/plomdawg/plomdawg.github.io"
+      demo:
+        - "/assets/images/concept_art.png"
       short_description: |
-        This website is built with 99% vibe coding.
+        This website is built with 90% vibe coding using ChatGPT, Gemini, and Claude.
+
+        This is the original concept art done in MS paint.

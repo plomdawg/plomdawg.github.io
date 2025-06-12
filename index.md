@@ -30,11 +30,9 @@ layout: default
         <p class="lead">{{ project.short_description }}</p>
         <hr>
 
-        <div class="row my-4">
+        <div class="demo-media">
           {% for item in project.demo %}
-            <div class="col-md-6 mb-3">
-              <img src="{{ item }}" class="img-fluid rounded border" alt="{{ project.name }} screenshot">
-            </div>
+            <img src="{{ item }}" class="img-fluid rounded border mb-3" alt="{{ project.name }} screenshot">
           {% endfor %}
         </div>
 

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const detailsContainer = document.getElementById('project-details-container');
+    const demoMediaContainer = document.getElementById('demo-media-container');
     
     // 1. Inject the HTML from our variable into the page
     // The 'projectDetailsHTML' variable is created in index.md
@@ -22,6 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetDetail = document.getElementById(targetId);
       if (targetDetail) {
         targetDetail.style.display = 'block';
+        
+        // Move demo media to the middle column
+        const demoMedia = targetDetail.querySelector('.demo-media');
+        if (demoMedia) {
+          demoMediaContainer.innerHTML = demoMedia.outerHTML;
+        } else {
+          demoMediaContainer.innerHTML = ''; // Clear if no demo media
+        }
+        
+        // Remove demo media from the details container
+        const demoMediaInDetails = targetDetail.querySelector('.demo-media');
+        if (demoMediaInDetails) {
+          demoMediaInDetails.remove();
+        }
       }
   
       // Update active link style

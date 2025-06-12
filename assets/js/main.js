@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoMediaContainer = document.getElementById('demo-media-container');
     const projectHeader = document.getElementById('project-header');
     
+    console.log('Initial projectDetailsHTML:', projectDetailsHTML);
+    
     // Initialize project details
     if (typeof projectDetailsHTML !== 'undefined') {
         detailsContainer.innerHTML = projectDetailsHTML;
@@ -11,15 +13,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.project-link');
     const projectDetails = document.querySelectorAll('.project-detail');
     
+    console.log('Found project links:', links.length);
+    console.log('Found project details:', projectDetails.length);
+    
     function showProject(targetId) {
+        console.log('Showing project:', targetId);
+        
         // Hide all projects and remove active states
         projectDetails.forEach(detail => detail.style.display = 'none');
         links.forEach(link => link.classList.remove('active'));
         
         // Show selected project
         const targetDetail = document.getElementById(targetId);
-        if (!targetDetail) return;
+        if (!targetDetail) {
+            console.error('Target project not found:', targetId);
+            return;
+        }
         
+        console.log('Found target detail:', targetDetail);
         targetDetail.style.display = 'block';
         
         // Update header
@@ -43,13 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Set active state
-        document.querySelector(`[data-target="${targetId}"]`)?.classList.add('active');
+        const activeLink = document.querySelector(`[data-target="${targetId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
     }
     
     // Add click handlers
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
+            console.log('Link clicked:', link.dataset.target);
             showProject(link.dataset.target);
         });
     });

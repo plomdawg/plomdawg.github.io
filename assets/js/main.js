@@ -26,22 +26,24 @@ document.addEventListener('DOMContentLoaded', function() {
         targetDetail.style.display = 'block';
         
         // Update project header with name and short description
-        const projectName = targetDetail.querySelector('.project-name');
-        const shortDescription = targetDetail.querySelector('.short-description');
+        const projectName = targetDetail.querySelector('h2');
+        const shortDescription = targetDetail.querySelector('.lead');
         if (projectName && shortDescription) {
           projectHeader.innerHTML = `
-            <h2 class="mb-2">${projectName.innerHTML}</h2>
-            <p class="lead mb-0">${shortDescription.innerHTML}</p>
+            <h2 class="mb-2">${projectName.textContent}</h2>
+            <p class="lead mb-0">${shortDescription.textContent}</p>
           `;
           // Remove from details container
           projectName.remove();
           shortDescription.remove();
         }
         
-        // Clone demo media to the middle column instead of moving it
+        // Move demo media to the middle column
         const demoMedia = targetDetail.querySelector('.demo-media');
         if (demoMedia) {
           demoMediaContainer.innerHTML = demoMedia.outerHTML;
+          // Remove the demo media from the details container
+          demoMedia.remove();
         } else {
           demoMediaContainer.innerHTML = ''; // Clear if no demo media
         }

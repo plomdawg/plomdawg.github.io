@@ -8,7 +8,7 @@
           url: "https://github.com/plomdawg/discord-bots"
       short_description: "A music bot for Discord servers."
       demo:
-        - "/assets/images/musicbot_screenshot1.png"
+        - "/assets/images/musicbot_demo.gif"
       long_description: |
         The music bot allows users to play music from various sources like YouTube and Spotify.
 

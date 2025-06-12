@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetDetail = document.getElementById(targetId);
         if (!targetDetail) return;
         
+        targetDetail.style.display = 'block';
+        
         // Update header
         const headerContent = targetDetail.querySelector('.project-header');
         if (headerContent) {
@@ -28,7 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update demo media
         const demoContent = targetDetail.querySelector('.project-demo');
-        demoMediaContainer.innerHTML = demoContent ? demoContent.innerHTML : '';
+        if (demoContent) {
+            demoMediaContainer.innerHTML = demoContent.innerHTML;
+        } else {
+            demoMediaContainer.innerHTML = '';
+        }
         
         // Update main content
         const mainContent = targetDetail.querySelector('.project-content');

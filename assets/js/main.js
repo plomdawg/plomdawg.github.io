@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const links = document.querySelectorAll('.project-link');
-    const projectDetails = detailsContainer.querySelectorAll('.project-detail');
+    const projectDetails = document.querySelectorAll('.project-detail');
     
     function showProject(targetId) {
         // Hide all projects and remove active states
@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show selected project
         const targetDetail = document.getElementById(targetId);
         if (!targetDetail) return;
-        
-        targetDetail.style.display = 'block';
         
         // Update header
         const headerContent = targetDetail.querySelector('.project-header');

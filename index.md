@@ -65,6 +65,9 @@ layout: default
                     {% if command.demo %}
                       <img src="{{ command.demo }}" class="img-fluid rounded border" alt="{{ command.name }} demo">
                     {% endif %}
+                    {% if command.hint %}
+                      <p class="command-hint"><em>{{ command.hint }}</em></p>
+                    {% endif %}
                   </div>
                 </div>
               {% endfor %}

@@ -95,6 +95,10 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.command-hint {
+    margin-top: 0.5rem;
+}
+
 .command-description img {
     margin-top: 0.5rem;
     max-width: 100%;

@@ -10,7 +10,7 @@
       demo:
         - "/assets/images/musicbot_demo.gif"
       long_description: |
-        The music bot allows users to play music from various sources like YouTube and Spotify.
+        The music bot streams music from YouTube.
 
         Key Features:
         * YouTube and Spotify support
@@ -26,13 +26,13 @@
       demo:
         - "/assets/images/dotabot.png"
       long_description: |
-        The dota bot allows users to play voicelines and the Shopkeeper's Quiz.
+        Allows users to play voicelines and the Shopkeeper's Quiz.
 
         Key Features:
+        * Dota 2 voiceline playback
         * Dota 2 Shopkeeper's Quiz
           * Unscramble 1000+ words
           * AI TTS feature to read the scrambled word
-        * Dota 2 Voicelines
 - section: "Websites"
   projects:
     - id: "label-generator"

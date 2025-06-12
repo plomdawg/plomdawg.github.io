@@ -3,18 +3,20 @@ layout: default
 ---
 
 {% for section in site.data.projects %}
-  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-    <span>{{ section.section }}</span>
-  </h6>
-  <ul class="nav flex-column">
-    {% for project in section.projects %}
-      <li class="nav-item">
-        <a class="nav-link project-link" href="#" data-target="{{ project.id }}">
-          {{ project.icon }} {{ project.name }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="sidebar-section-card">
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>{{ section.section }}</span>
+    </h6>
+    <ul class="nav flex-column">
+      {% for project in section.projects %}
+        <li class="nav-item">
+          <a class="nav-link project-link" href="#" data-target="{{ project.id }}">
+            {{ project.icon }} {{ project.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endfor %}
 
 {% capture project_details %}

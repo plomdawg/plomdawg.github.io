@@ -3,15 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoMediaContainer = document.getElementById('demo-media-container');
     const projectHeader = document.getElementById('project-header');
     
-    console.log('Initial projectDetailsHTML:', projectDetailsHTML);
+    // Create a hidden container for project details
+    const projectDetailsContainer = document.createElement('div');
+    projectDetailsContainer.style.display = 'none';
+    document.body.appendChild(projectDetailsContainer);
     
     // Initialize project details
     if (typeof projectDetailsHTML !== 'undefined') {
-        detailsContainer.innerHTML = projectDetailsHTML;
+        projectDetailsContainer.innerHTML = projectDetailsHTML;
     }
     
     const links = document.querySelectorAll('.project-link');
-    const projectDetails = document.querySelectorAll('.project-detail');
+    const projectDetails = projectDetailsContainer.querySelectorAll('.project-detail');
     
     console.log('Found project links:', links.length);
     console.log('Found project details:', projectDetails.length);
@@ -24,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         links.forEach(link => link.classList.remove('active'));
         
         // Show selected project
-        const targetDetail = document.getElementById(targetId);
+        const targetDetail = projectDetailsContainer.querySelector(`#${targetId}`);
         if (!targetDetail) {
             console.error('Target project not found:', targetId);
             return;
@@ -50,10 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update main content
         const mainContent = targetDetail.querySelector('.project-content');
         if (mainContent) {
-            const contentDiv = document.createElement('div');
-            contentDiv.innerHTML = mainContent.innerHTML;
-            detailsContainer.innerHTML = '';
-            detailsContainer.appendChild(contentDiv);
+            detailsContainer.innerHTML = mainContent.innerHTML;
         }
         
         // Set active state
